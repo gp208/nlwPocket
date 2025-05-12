@@ -1,9 +1,11 @@
 import { defineConfig } from 'drizzle-kit';
+import { env } from './src/env';
+
 export default defineConfig({
   dialect: 'postgresql',
   schema: './src/schema.ts',
   out: './.migrations',
   dbCredentials: {
-    url: 'postgresql://docker:docker@localhost:5432/inorbit'
+    url: env.DATABASE_URL
   }
 });
